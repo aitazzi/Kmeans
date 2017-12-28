@@ -23,6 +23,7 @@ if(angle < 0)
     angle = angle + 2*pi;
 end
 
+
 % Get the 90% confidence interval error ellipse
 chisquare_val = chi2inv(0.9,2);
 theta_grid = linspace(0,2*pi);
@@ -40,7 +41,7 @@ ellipse_y_r  = b*sin( theta_grid );
 R = [ cos(phi) sin(phi); -sin(phi) cos(phi) ];
 
 %let's rotate the ellipse to some angle phi
-r_ellipse = [ellipse_x_r;ellipse_y_r]' * R;
+r_ellipse = R*[ellipse_x_r;ellipse_y_r]';
 
 % Draw the error ellipse
 %figure;
